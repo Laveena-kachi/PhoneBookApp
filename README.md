@@ -8,15 +8,17 @@
 
 PhoneBook Application 
 
-Aim of the PhoneBook Application is to provide the clients to add, read, update & delete the contacts virtually, Using PhoneBook Application the Admin can create, read, update & delete the contacts. The admin has access to user records, the admin can perform CRUD operations on user records as well.
+Aim of the PhoneBook Application is to provide the clients to add, read, update & delete the contacts, Using PhoneBook Application the Admin can create, read, update & delete the contacts. The admin has access to user records, the admin can perform CRUD operations on user records as well.
+
+
 
 First Step: download in your system.
 
-git clone https://github.com/Laveena-kachi/BooskstoreApplication
+git clone https://github.com/Laveena-kachi/PhoneBookApp
 
 
 ```http
-  cd 
+  cd PhoneBookApp
 ```
 
  composer install
@@ -80,23 +82,56 @@ using above update url admin will get the edit form to edit user details, which 
 ```
 admin can delete the user by using the above delete route.
 
-Now, we can register a user 
+Admin also has access to perform the CRUD operations on contacts.
+
+1. GET contacts
+```http
+  http://127.0.0.1:8000/admin-contacts
+```
+To get all the contacts I've used the index method from API/AdminController.
+
+2. Add contact
+```http
+  http://127.0.0.1:8000/admin-contact-form
+```
+using the above url admin will get the form to add a new contact, which is created from create method.
+
+3. Update contact
+```http
+  http://127.0.0.1:8000/admin-update/{id}
+```
+using above update url admin will get the edit form to edit contact details, which is created from edit  method.
+
+4. Delete contact
+```http
+  http://127.0.0.1:8000/admin-delete/{id}
+```
+To view total number of contacts added by clients daily,weekly & montly. 
+\```http
+  http://127.0.0.1:8000/count
+```
+
+Now, we can register a client 
 ```http
   http://127.0.0.1:8000/register
 ```
-Then,the registered customer will login & will be redirected to the search page & product page.
+Then,the registered client will login & will be redirected to the contact list page.
 ```http
-  http://127.0.0.1:8000/search
+  http://127.0.0.1:8000/contacts
 ```
-from this search route, the customer can search the book title & it will display the available products with pagination.
+from this contacts route, the client can view the list of contacts & it will display all the contacts.
 
-By clicking the book title, customer is redirected to the product page containing all product information.
+A client can create a contact using the following route,
+
 ```http
-  http://127.0.0.1:8000/detail/{id}
+  http://127.0.0.1:8000/form
 ```
-The customer can search & filter based on author name, isbn, genre & published date by using the following route:
+A client can update a contact using the following route,
 ```http
-  http://127.0.0.1:8000/searchfilter
+  http://127.0.0.1:8000/update/{id}
 ```
+A client can delete a contact using the following route,
 
-
+```http
+  http://127.0.0.1:8000/delete/{id}
+```

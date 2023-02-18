@@ -107,7 +107,7 @@ using above update url admin will get the edit form to edit contact details, whi
   http://127.0.0.1:8000/admin-delete/{id}
 ```
 To view total number of contacts added by clients daily,weekly & montly. 
-\```http
+```http
   http://127.0.0.1:8000/count
 ```
 
